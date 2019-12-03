@@ -1,0 +1,41 @@
+Instructions for compiling and running code
+
+Assumes the user has gcc and pgi compilers
+
+-------------------------------------------------------------------
+
+For OpenACC multicore or gpu, do at least the following to compile:
+
+pgcc -ta=<target_accelerator> acc_single_gpu.c
+
+e.g. for multicore
+
+pgcc -ta=multicore acc_single_gpu.c
+
+e.g. for GPU
+
+pgcc -ta=multicore acc_single_gpu.c
+
+Then to run the compiled code with the proper arguments do:
+
+#Where output.file is where we want to store output
+./a.out size1 size2 num_iterations output.file
+
+e.g. with particular sizes and number of iterations 
+./a.out 256 256 10000 out.txt
+
+To change the number of threads to use to n, run the following:
+export ACC_NUM_CORES=n
+
+-------------------------------------------------------------------
+
+For OpenMP multicore at least do this to compile:
+
+gcc -fopenmp heat_omp.c
+
+Then to run the compiled code it would be the same as above, e.g.
+./a.out 256 256 10000 out.txt
+
+To change the number of threads to use to n, run the following:
+export OMP_NUM_THREADS=n 
+
