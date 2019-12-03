@@ -14,7 +14,7 @@ pgcc -ta=multicore acc_single_gpu.c
 
 e.g. for GPU
 
-pgcc -ta=multicore acc_single_gpu.c
+pgcc -ta=tesla acc_single_gpu.c
 
 Then to run the compiled code with the proper arguments do:
 
